@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Unfollowers",
+  "version": "1.0.0",
+  "description": "Find Instagram accounts that don't follow you back.",
+  "permissions": ["storage", "cookies", "scripting", "tabs"],
+  "host_permissions": ["*://*.instagram.com/*"],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.instagram.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
